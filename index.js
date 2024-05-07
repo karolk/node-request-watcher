@@ -1,5 +1,6 @@
 const http = require("http");
 const PORT = 3000;
+const logger = require('pino')()
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -13,7 +14,7 @@ const server = http.createServer((req, res) => {
     });
 
     req.on("end", function () {
-      console.log(body)
+      logger.info(body)
     });
   }
 
